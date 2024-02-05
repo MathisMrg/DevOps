@@ -1,45 +1,49 @@
+#definit la version en cas de retrocompatibilité necessaire
 version: "3.7"
 
+# definit les services
 services:
+  # nom du service
   backend:
+    # chemin du dockerfile
     build:
       context: ./java
-    ports: 
-      - "8080:8080"
+    # network commun a tous qui est definit plus bas
     networks:
       - app-network
+    # fichier des variables d'environnement
     env_file: ./java/.env
+    # dependant de la base de données
     depends_on:
       - database
-    hostname: javaTP1
+    # precise le container name pour que les autres puisse l'utiliser
     container_name: javaTP1
 
   database:
     build:
       context: ./db
-    ports: 
-      - "5432:5432"
     networks:
       - app-network
+    # definit le dossier du volumes
     volumes:
       - dataDir:/var/lib/postgresql/data
     env_file: ./db/.env
-    hostname: postgresTP1
     container_name: postgresTP1
 
   httpd:
     build:
       context: ./httpd
+    #definit le port du reverse proxy
     ports:
       - "8081:80"
     networks:
       - app-network
     depends_on:
       - backend
-    hostname: httpdTP1
     container_name: httpdTP1
 
   adminer:
+    #permet d'aller chercher une image directement
     image: adminer
     restart: always
     networks:
@@ -47,8 +51,10 @@ services:
     ports:
       - 8090:8080
 
+# definit le network commun à tous
 networks:
   app-network:
 
+# Definit le volume utiliser plus haut
 volumes:
   dataDir:

@@ -1,0 +1,44 @@
+version: "3.7"
+
+services:
+  backend:
+    image: mathismrg/tp1-backend:1.0
+    networks:
+      - app-network
+    env_file: .env
+    depends_on:
+      - database
+    container_name: javaTP1
+
+  database:
+    image: mathismrg/tp1-database:1.0
+    networks:
+      - app-network
+    volumes:
+      - dataDir:/var/lib/postgresql/data
+    env_file: .env
+    container_name: postgresTP1
+
+  httpd:
+    image: mathismrg/tp1-httpd:1.0
+    ports:
+      - "8081:80"
+    networks:
+      - app-network
+    depends_on:
+      - backend
+    container_name: httpdTP1
+
+  adminer:
+    image: adminer
+    restart: always
+    networks:
+      - app-network
+    ports:
+      - 8090:8080
+
+networks:
+  app-network:
+
+volumes:
+  dataDir:
