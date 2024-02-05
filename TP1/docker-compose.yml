@@ -1,0 +1,54 @@
+version: "3.7"
+
+services:
+  backend:
+    build:
+      context: ./java
+    ports: 
+      - "8080:8080"
+    networks:
+      - app-network
+    env_file: ./java/.env
+    depends_on:
+      - database
+    hostname: javaTP1
+    container_name: javaTP1
+
+  database:
+    build:
+      context: ./db
+    ports: 
+      - "5432:5432"
+    networks:
+      - app-network
+    volumes:
+      - dataDir:/var/lib/postgresql/data
+    env_file: ./db/.env
+    hostname: postgresTP1
+    container_name: postgresTP1
+
+  httpd:
+    build:
+      context: ./httpd
+    ports:
+      - "8081:80"
+    networks:
+      - app-network
+    depends_on:
+      - backend
+    hostname: httpdTP1
+    container_name: httpdTP1
+
+  adminer:
+    image: adminer
+    restart: always
+    networks:
+      - app-network
+    ports:
+      - 8090:8080
+
+networks:
+  app-network:
+
+volumes:
+  dataDir:
