@@ -20,4 +20,4 @@ docker run -p "8090:8080" --network app-network --name=adminer -d adminer
 | Base de données | db |
 
 docker build -t mathis/postgrestp1 .
-docker run -d -p 8888:5432 --env-file .env -v dataDir:/var/lib/postgresql/data --network app-network --name postgresTP1 mathis/postgrestp1 
+docker run -d -p 8888:5432 --env-file .env -v /home/mathis/project/DevOps/DevOps/TP1/dataDir:/var/lib/postgresql/data --network app-network --name postgresTP1 mathis/postgrestp1 
