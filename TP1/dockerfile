@@ -1,0 +1,9 @@
+FROM postgres:14.1-alpine
+
+# variable d'environnement ecraser par le .env
+ENV POSTGRES_DB=db \
+   POSTGRES_USER=usr \
+   POSTGRES_PASSWORD=pwd
+
+COPY DB_scripts/CreateScheme.sql /docker-entrypoint-initdb.d
+COPY DB_scripts/InsertData.sql /docker-entrypoint-initdb.d
