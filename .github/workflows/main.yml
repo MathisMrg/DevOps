@@ -46,6 +46,7 @@ jobs:
           context: ./TP1/java
           # Note: tags has to be all lower-case
           tags:  ${{secrets.DOCKER_LOGIN_USERNAME_TAG}}/tp1-backend:latest
+          push: ${{ github.ref == 'refs/heads/main' }}
 
       - name: Build image and push database
         uses: docker/build-push-action@v3
@@ -54,6 +55,7 @@ jobs:
           context: ./TP1/db
           # Note: tags has to be all lower-case
           tags:  ${{secrets.DOCKER_LOGIN_USERNAME_TAG}}/tp1-database:latest
+          push: ${{ github.ref == 'refs/heads/main' }}
 
       - name: Build image and push httpd
         uses: docker/build-push-action@v3
@@ -62,3 +64,4 @@ jobs:
           context: ./TP1/httpd
           # Note: tags has to be all lower-case
           tags:  ${{secrets.DOCKER_LOGIN_USERNAME_TAG}}/tp1-httpd:latest
+          push: ${{ github.ref == 'refs/heads/main' }}

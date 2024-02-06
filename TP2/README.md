@@ -32,3 +32,4 @@ Secured Variables, why?
 https://github.com/MathisMrg/DevOps/settings/variables/actions
 
 ![alt text](image.png)
+
