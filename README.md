@@ -3,3 +3,4 @@
 ## Disposition des dossiers
 
 - TP1 : TP sur Docker
+- TP2 : TP sur GitHub Actions
