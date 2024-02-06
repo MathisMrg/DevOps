@@ -43,22 +43,22 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           # relative path to the place where source code with Dockerfile is located
-          context: ./TP1/java/
+          context: ./TP1/java
           # Note: tags has to be all lower-case
-          tags:  ${{secrets.DOCKER_LOGIN_USERNAME}}/tp-devops-simple-api:latest
+          tags:  ${{secrets.DOCKER_LOGIN_USERNAME}}/tp1-backend:latest
 
       - name: Build image and push database
         uses: docker/build-push-action@v3
         with:
           # relative path to the place where source code with Dockerfile is located
-          context: ./TP1/db/
+          context: ./TP1/db
           # Note: tags has to be all lower-case
-          tags:  ${{secrets.DOCKER_LOGIN_USERNAME}}/tp-devops-database:latest
+          tags:  ${{secrets.DOCKER_LOGIN_USERNAME}}/tp1-database:latest
 
       - name: Build image and push httpd
         uses: docker/build-push-action@v3
         with:
           # relative path to the place where source code with Dockerfile is located
-          context: ./TP1/httpd/
+          context: ./TP1/httpd
           # Note: tags has to be all lower-case
-          tags:  ${{secrets.DOCKER_LOGIN_USERNAME}}/tp-devops-httpd:latest
+          tags:  ${{secrets.DOCKER_LOGIN_USERNAME}}/tp1-httpd:latest
