@@ -82,6 +82,3 @@ Le needs permet de dire que le build-and-test-backend est necessaire de à passe
 ![Sonar code review](image-5.png)
 
 ## Bonus
-
-### Images bonus first part
-![alt text](image-7.png)
