@@ -2,6 +2,8 @@ name: build-and-push-docker
 on:
   #to begin you want to launch this job in main and develop
   workflow_run:
+    branches:
+      - "main"
     workflows : ["test-backend"]
     types:
       - completed
