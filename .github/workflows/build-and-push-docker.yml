@@ -1,14 +1,18 @@
-name: CI devops 2024
+name: build-and-push-docker
 on:
   #to begin you want to launch this job in main and develop
   push:
     branches:
       - main
+    workflow_run:
+      workflows : ["test-backend"]
+      types:
+        - completed
   pull_request:
 
   # define job to build and publish docker image
   build-and-push-docker-image:
-    needs: test-backend
+    # needs: test-backend
     # run only when code is compiling and tests are passing
     runs-on: ubuntu-22.04
 
