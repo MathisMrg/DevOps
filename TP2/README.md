@@ -41,6 +41,5 @@ Why did we put needs: build-and-test-backend on this job? Maybe try without this
 
 For what purpose do we need to push docker images?
 
-
 Ajout des keys sonar 
 ![alt text](image-4.png)
