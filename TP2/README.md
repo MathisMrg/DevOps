@@ -103,3 +103,7 @@ on:
     types:
 
       - completed
+
+Pour verifier si c'est le buils à reussi
+
+if: ${{ github.ref == 'refs/heads/main' && github.event.workflow_run.conclusion == 'success' }}
