@@ -5,6 +5,9 @@ commands
 sudo apt install maven
 mvn clean verify
 
+Secured Variables, why?
+
+
 Results:
 [INFO] 
 [INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0
@@ -18,3 +21,6 @@ What is it supposed to do?
 Unit tests? Component tests?
 
 2-1 What are testcontainers?
+
+2-2 Document your Github Actions configurations.
+
