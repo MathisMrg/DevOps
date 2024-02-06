@@ -35,3 +35,12 @@ https://github.com/MathisMrg/DevOps/settings/variables/actions
 
 Why did we put needs: build-and-test-backend on this job? Maybe try without this and you will see!
 
+![alt text](image-2.png)
+
+![alt text](image-3.png)
+
+For what purpose do we need to push docker images?
+
+
+Ajout des keys sonar 
+![alt text](image-4.png)
