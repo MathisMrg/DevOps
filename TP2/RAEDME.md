@@ -7,7 +7,6 @@ mvn clean verify
 
 Secured Variables, why?
 
-
 Results:
 [INFO] 
 [INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0
@@ -24,3 +23,12 @@ Unit tests? Component tests?
 
 2-2 Document your Github Actions configurations.
 
+https://github.com/MathisMrg/DevOps/actions
+
+![alt text](image-1.png)
+
+Secured Variables, why?
+
+https://github.com/MathisMrg/DevOps/settings/variables/actions
+
+![alt text](image.png)
