@@ -33,3 +33,5 @@ https://github.com/MathisMrg/DevOps/settings/variables/actions
 
 ![alt text](image.png)
 
+Why did we put needs: build-and-test-backend on this job? Maybe try without this and you will see!
+
