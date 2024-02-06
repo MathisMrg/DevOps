@@ -66,7 +66,7 @@ Le needs permet de dire que le build-and-test-backend est necessaire de à passe
 
 ### Question : For what purpose do we need to push docker images?
 
- // TODO
+Cela depends des contextes projet et des environnement de deploiement. On a besoin de push les dockers images si elles ont pour but de DEV sur totues les branches. Dans les cas ou on veut push sur pour des environnement de prod on se basera plutôt sur des tags par exemple
 
 ### image d'ajout des keys sonar 
 ![sonar keys](image-4.png)
@@ -101,5 +101,5 @@ on:
     workflows : ["test-backend"]
 
     types:
-    
+
       - completed
