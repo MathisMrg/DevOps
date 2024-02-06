@@ -83,3 +83,23 @@ Le needs permet de dire que le build-and-test-backend est necessaire de à passe
 
 ## Bonus
 
+### Images ou l'on voit deux github actions sur main qui mennent à docker deploy, puis un commit sur dev qui qui ne mene pas à un deploy docker
+![alt text](image-7.png)
+
+### Modif necessaires pour bonus
+
+scinder les fichiers en 2 puis modifier la partie build and push docker
+
+on:
+
+  workflow_run:
+
+    branches:
+
+      - main
+
+    workflows : ["test-backend"]
+
+    types:
+    
+      - completed
