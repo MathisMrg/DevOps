@@ -1,7 +1,6 @@
 name: Deploy with Ansible
-on:
-  on: [workflow_dispatch]
-  
+on: [workflow_dispatch]
+
 jobs:
   build-and-push-docker-image:
     runs-on: ubuntu-22.04
