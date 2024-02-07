@@ -1,2 +1,27 @@
 ---
 # tasks file for roles/network
+- name: Create a network
+  docker_network:
+    name: app_network
+    state: present
+
+- name: Add a container to a network, leaving existing containers connected
+  docker_network:
+    name: app_network
+    connected:
+      - tp1-database
+    appends: true
+
+- name: Add a container to a network, leaving existing containers connected
+  docker_network:
+    name: app_network
+    connected:
+      - tp1-backend
+    appends: true
+
+- name: Add a container to a network, leaving existing containers connected
+  docker_network:
+    name: app_network
+    connected:
+      - tp1-httpd
+    appends: true

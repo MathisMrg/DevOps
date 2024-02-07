@@ -1,2 +1,4 @@
----
-# tasks file for roles/app
+  - name: Run backend
+    docker_container:
+      name: tp1-backend
+      image: mathismrg/tp1-backend:1.0

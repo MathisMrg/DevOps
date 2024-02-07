@@ -1,2 +1,4 @@
----
-# tasks file for roles/proxy
+  - name: Run HTTPD
+    docker_container:
+      name: tp1-httpd
+      image: mathismrg/tp1-httpd:1.0

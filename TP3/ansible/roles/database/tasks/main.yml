@@ -1,2 +1,25 @@
 ---
-# tasks file for roles/database
+# tasks file for roles/
+  # nom de la tache
+- name: Run database
+  #on utilise le module ansible "docker_container" 
+  docker_container:
+    #on nomme l'image
+    name: tp1-database
+    #on indique qu'elle image pull sur dockerhub 
+    image: mathismrg/tp1-database:1.0
+    # on selectionne un network commun, ici veriabilise dans le playbook
+    networks:
+      - name: app_network
+    # on définie nos variables d'env pour le docker
+    env:
+      POSTGRES_DB: db
+      POSTGRES_USER: usr
+      POSTGRES_PASSWORD: pwd
+    # pour les tests on recréer le docker
+    recreate: true
+    volumes:
+      - /data
+      #on indique à ansible ou trouver l'interpréteur python
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
