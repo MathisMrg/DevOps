@@ -52,5 +52,4 @@ mettre à jour
 ### Bonus CI ansible deploy
 creer un dockerfile avec ansible
 ansible-vault encrypt ./var.yml
-ansible-playbook -i inventories/setup.yml playbook.yml --ask-vault-pass
 ansible-galaxy init roles/ansible_container

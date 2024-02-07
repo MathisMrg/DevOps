@@ -1,8 +1,0 @@
-  - name: Run ansible_container
-    docker_container:
-      name: ansible
-      image: mathismrg/ansible:latest
-      networks:
-        - name: app_network
-    vars:
-      ansible_python_interpreter: /usr/bin/python3

@@ -1,0 +1,31 @@
+name: build-and-push-docker
+on:
+  #to begin you want to launch this job in main and develop
+  workflow_run:
+    branches:
+      - main
+    workflows : ["build-and-push-docker"]
+    types:
+      - completed
+
+  # define job to build and publish docker image
+jobs:
+  build-and-push-docker-image:
+    # needs: test-backend
+    # run only when code is compiling and tests are passing
+    runs-on: ubuntu-22.04
+    if: ${{ github.ref == 'refs/heads/main' && github.event.workflow_run.conclusion == 'success' }}
+
+    # steps to perform in job
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2.5.0
+
+      - name: connect to centos
+        run: ssh -i ./id_rsa centos@mathis.malek.takima.cloud      
+
+      - name: run anssible ping
+        run: ansible all -i inventories/setup.yml -m ping
+
+      - name: run anssible playbook
+        run: ansible-playbook -i inventories/setup.yml playbook.yml --ask-vault-pass
