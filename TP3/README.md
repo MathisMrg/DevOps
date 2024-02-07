@@ -42,8 +42,15 @@ ansible-galaxy init roles/network
 //TODO
 
 ### Bonus: Front
+ansible-galaxy init roles/front
 Ajouter le zib du front, modifier le httpd conf pour acceder à l'api et au front
 modfier le env du front pour qu'il redirige vers l'api definit dans httpd
 build l'image
 creer un role dans le playbook
 mettre à jour
+
+### Bonus CI ansible deploy
+creer un dockerfile avec ansible
+ansible-vault encrypt ./var.yml
+ansible-playbook -i inventories/setup.yml playbook.yml --ask-vault-pass
+ansible-galaxy init roles/ansible_container
