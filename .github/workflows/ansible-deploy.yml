@@ -1,5 +1,10 @@
 name: Deploy with Ansible
-on: [workflow_dispatch]
+on:
+  workflow_run:
+    workflows: ["build-and-push-docker"]
+    branches: [main]
+    types:
+      - completed
 
 jobs:
   build-and-push-docker-image:
