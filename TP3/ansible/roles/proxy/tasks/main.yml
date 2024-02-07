@@ -4,7 +4,8 @@
       image: mathismrg/tp1-httpd:latest
       networks:
         - name: app_network
-      exposed_ports:
+      ports:
         - "80:80"
+      recreate: true
     vars:
       ansible_python_interpreter: /usr/bin/python3

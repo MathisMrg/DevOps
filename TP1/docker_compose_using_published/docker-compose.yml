@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   backend:
-    image: mathismrg/tp1-backend:1.0
+    image: mathismrg/tp1-backend:latest
     networks:
       - app-network
     env_file: .env
@@ -11,7 +11,7 @@ services:
     container_name: tp1-backend
 
   database:
-    image: mathismrg/tp1-database:1.0
+    image: mathismrg/tp1-database:latest
     networks:
       - app-network
     volumes:
@@ -20,7 +20,7 @@ services:
     container_name: postgresTP1
 
   httpd:
-    image: mathismrg/tp1-httpd:1.0
+    image: mathismrg/tp1-httpd:latest
     ports:
       - "8081:80"
     networks:
@@ -28,6 +28,14 @@ services:
     depends_on:
       - backend
     container_name: httpdTP1
+  
+  front:
+    build:
+      context: ../devops-front-main
+    networks:
+      - app-network
+    depends_on:
+      - backend
 
   adminer:
     image: adminer

@@ -5,8 +5,8 @@
       networks:
         - name: app_network
       env:
-        DB_URL: jdbc:postgresql://tp1-database:5432/db
-        DB_username: usr
-        DB_password: pwd
+        DB_URL: "{{ DB_URL }}"
+        DB_username: "{{ DB_username }}"
+        DB_password: "{{ DB_password }}"
     vars:
       ansible_python_interpreter: /usr/bin/python3

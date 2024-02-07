@@ -13,9 +13,9 @@
       - name: app_network
     # on définie nos variables d'env pour le docker
     env:
-      POSTGRES_DB: db
-      POSTGRES_USER: usr
-      POSTGRES_PASSWORD: pwd
+      POSTGRES_DB: "{{ POSTGRES_DB }}"
+      POSTGRES_USER: "{{ POSTGRES_USER }}"
+      POSTGRES_PASSWORD: "{{ POSTGRES_PASSWORD }}"
     # pour les tests on recréer le docker
     recreate: true
     volumes:
