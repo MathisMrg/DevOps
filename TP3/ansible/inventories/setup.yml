@@ -5,7 +5,6 @@ all:
     # Spécifie le chemin de la clé privée SSH
     ansible_user: centos
     # Spécifie le chemin de la clé privée SSH
-    # ansible_ssh_private_key_file: /mnt/home/users/mathis.malek/desktop/DevOps/id_rsa
     # POSTGRES_DB: db
     # POSTGRES_USER: usr
     # POSTGRES_PASSWORD: pwd
