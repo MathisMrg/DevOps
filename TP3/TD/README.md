@@ -18,7 +18,7 @@
 ```sudo touch /etc/ansible/hosts```
 ```sudo nano /etc/ansible/hosts``` 
 ```cat /etc/ansible/hosts```
-```centos@mathis.malek.takima.cloud```
+- centos@mathis.malek.takima.cloud
 
 ```ansible all -m ping```
 - dont work because he dont have th essh key

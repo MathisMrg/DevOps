@@ -1,0 +1,14 @@
+# Marque le début de la définition de l'inventaire Ansible
+all:
+  # Définition des variables globales pour tous les hôtes
+  vars:
+    # Spécifie le chemin de la clé privée SSH
+    ansible_user: centos
+    # Spécifie le chemin de la clé privée SSH
+    ansible_ssh_private_key_file: /home/mathis/project/DevOps/id_rsa
+  # Début de la définition des groupes d'hôtes
+  children:
+    # Définit un groupe d'hôtes nommé "prod"
+    prod:
+      # Spécifie les hôtes inclus dans le groupe "prod"
+      hosts: centos@mathis.malek.takima.cloud
