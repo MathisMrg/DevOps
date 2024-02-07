@@ -3,7 +3,7 @@
   become: true  # Indique à Ansible de devenir superutilisateur (root) lors de l'exécution des tâches
   roles:
     - docker
+    - network
     - database
     - app
     - proxy
-    - network

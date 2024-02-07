@@ -1,4 +1,12 @@
   - name: Run backend
     docker_container:
       name: tp1-backend
-      image: mathismrg/tp1-backend:1.0
+      image: mathismrg/tp1-backend:latest
+      networks:
+        - name: app_network
+      env:
+        DB_URL: jdbc:postgresql://tp1-database:5432/db
+        DB_username: usr
+        DB_password: pwd
+    vars:
+      ansible_python_interpreter: /usr/bin/python3

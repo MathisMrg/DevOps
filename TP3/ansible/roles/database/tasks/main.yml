@@ -7,7 +7,7 @@
     #on nomme l'image
     name: tp1-database
     #on indique qu'elle image pull sur dockerhub 
-    image: mathismrg/tp1-database:1.0
+    image: mathismrg/tp1-database:latest
     # on selectionne un network commun, ici veriabilise dans le playbook
     networks:
       - name: app_network
