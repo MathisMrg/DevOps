@@ -59,3 +59,12 @@ jobs:
           # Note: tags has to be all lower-case
           tags:  ${{secrets.DOCKER_LOGIN_USERNAME_TAG}}/front:latest
           push: ${{ github.ref == 'refs/heads/main' }}
+
+      - name: Build image and push ansible
+        uses: docker/build-push-action@v3
+        with:
+          # relative path to the place where source code with Dockerfile is located
+          context: ./TP3
+          # Note: tags has to be all lower-case
+          tags:  ${{secrets.DOCKER_LOGIN_USERNAME_TAG}}/ansible:latest
+          push: ${{ github.ref == 'refs/heads/main' }}
