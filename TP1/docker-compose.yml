@@ -17,7 +17,7 @@ services:
     depends_on:
       - database
     # precise le container name pour que les autres puisse l'utiliser
-    container_name: javaTP1
+    container_name: tp1-backend
 
   database:
     build:
