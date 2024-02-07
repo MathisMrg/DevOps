@@ -22,7 +22,7 @@ services:
   httpd:
     image: mathismrg/tp1-httpd:latest
     ports:
-      - "8081:80"
+      - "80:80"
     networks:
       - app-network
     depends_on:
@@ -35,7 +35,7 @@ services:
     networks:
       - app-network
     depends_on:
-      - backend
+      - httpd
     container_name: front
 
   adminer:

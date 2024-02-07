@@ -40,3 +40,10 @@ ansible-galaxy init roles/network
 ### Question : Document your docker_container tasks configuration.
 
 //TODO
+
+### Bonus: Front
+Ajouter le zib du front, modifier le httpd conf pour acceder à l'api et au front
+modfier le env du front pour qu'il redirige vers l'api definit dans httpd
+build l'image
+creer un role dans le playbook
+mettre à jour
