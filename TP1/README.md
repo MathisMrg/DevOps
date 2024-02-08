@@ -139,7 +139,7 @@ docker tag tp1-httpd mathismrg/tp1-httpd:1.0
 docker push mathismrg/tp1-httpd:1.0
  - permet de push le tag de l'image que l'on vient de creer
 
-### question 1-3 Document docker-compose most important commands. 1-4 Document your docker-compose file. (cf dockerFile à la racine)
+### question 1-3 Document docker-compose most important commands. 1-4 Document your docker-compose file. (cf docker compose à la racine)
 
 - docker-compose up -d: permet de lancer les services qui sont down et de se détacher pour que les containers tournent en arrière-plan
 

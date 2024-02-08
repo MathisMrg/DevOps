@@ -41,15 +41,14 @@ Testcontainers est une bibliothèque de tests qui permet d'amorcer des tests d'i
 
 ### Question : 2-2 Document your Github Actions configurations.
 
- // TODO
 cf github actions workflow main.yml
 
-Lien vers les actions : https://github.com/MathisMrg/DevOps/actions
+Lien utile vers les actions : https://github.com/MathisMrg/DevOps/actions
 
 ### Image de la première CI passé
 ![first ci passed](image-1.png)
 
-Lien vers les variables : https://github.com/MathisMrg/DevOps/settings/variables/actions
+Lien utile vers les variables : https://github.com/MathisMrg/DevOps/settings/variables/actions
 
 ### Image des variables dans les parametres
 ![docker login keys](image.png)
@@ -73,7 +72,16 @@ Cela depends des contextes projet et des environnement de deploiement. On a beso
 
 ### Question : Document your quality gate configuration.
 
- // TODO
+On utilise la config sonar cloud par defaut
+On creer une organisation et un projet
+Puis on setup la ligne du workflow main.yml pour valider le code
+
+Les quality gates sont ceux par defauts
+On setup main en tant que branch par defaut au lieu de master
+
+On peut aller voir a l'url https://sonarcloud.io/summary/new_code?id=mathisdevopstp2_mathisdevopstp2
+La branch develop : https://sonarcloud.io/summary/new_code?id=mathisdevopstp2_mathisdevopstp2&branch=develop
+
 
 ### imgae de sonar ci passed
 ![sonar ci passed](image-6.png)

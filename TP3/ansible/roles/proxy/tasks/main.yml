@@ -1,11 +1,12 @@
-  - name: Run HTTPD
-    docker_container:
-      name: tp1-httpd
-      image: mathismrg/tp1-httpd:latest
-      networks:
-        - name: app_network
-      ports:
-        - "80:80"
-      recreate: true
-    vars:
-      ansible_python_interpreter: /usr/bin/python3
+- name: Run HTTPD   # Nom de la tâche
+  docker_container:   # Utilise le module docker_container pour gérer les conteneurs Docker
+    name: tp1-httpd   # Nom du conteneur Docker
+    image: mathismrg/tp1-httpd:latest   # Image Docker à utiliser pour le conteneur, avec la version "latest"
+    networks:   # Configuration du réseau pour le conteneur
+      - name: app_network   # Nom du réseau auquel le conteneur sera connecté
+    ports:   # Configuration des ports à mapper
+      - "80:80"   # Mappe le port 80 du conteneur vers le port 80 de l'hôte
+    recreate: true   # Indique que le conteneur doit être recréé si nécessaire
+
+  vars:   # Définition de variables spécifiques pour cette tâche
+    ansible_python_interpreter: /usr/bin/python3   # Spécifie l'interpréteur Python à utiliser pour Ansible, ici Python 3

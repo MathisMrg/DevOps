@@ -1,6 +1,6 @@
 name: build-and-push-docker
 on:
-  #to begin you want to launch this job in main and develop
+  #to begin you want to launch this job on the end of workflow test-backend
   workflow_run:
     branches:
       - main
@@ -14,6 +14,7 @@ jobs:
     # needs: test-backend
     # run only when code is compiling and tests are passing
     runs-on: ubuntu-22.04
+    # permet de verify que le job a succed avant
     if: ${{ github.ref == 'refs/heads/main' && github.event.workflow_run.conclusion == 'success' }}
 
     # steps to perform in job
@@ -21,6 +22,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2.5.0
 
+      # permet de se conneter a docker hub avant de push les images
       - name: Login to DockerHub
         run: docker login -u ${{ secrets.DOCKER_LOGIN_USERNAME_TAG }} -p ${{ secrets.DOCKER_LOGIN_PASSWORD }}
 

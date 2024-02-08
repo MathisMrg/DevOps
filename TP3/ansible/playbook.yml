@@ -1,9 +1,9 @@
 - hosts: all  # Spécifie les hôtes sur lesquels ces tâches doivent être exécutées
   gather_facts: false  # Indique à Ansible de ne pas collecter les faits (informations système) des hôtes
   become: true  # Indique à Ansible de devenir superutilisateur (root) lors de l'exécution des tâches
-  vars_files:
+  vars_files: # fichier vault pour les variables
     - var.yml
-  roles:
+  roles: # Les roles qui ont chacun un task dans l'ordre
     - docker
     - network
     - database

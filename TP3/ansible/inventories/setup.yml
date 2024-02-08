@@ -4,13 +4,6 @@ all:
   vars:
     # Spécifie le chemin de la clé privée SSH
     ansible_user: centos
-    # Spécifie le chemin de la clé privée SSH
-    # POSTGRES_DB: db
-    # POSTGRES_USER: usr
-    # POSTGRES_PASSWORD: pwd
-    # DB_URL: jdbc:postgresql://tp1-database:5432/db
-    # DB_username: usr
-    # DB_password: pwd
   # Début de la définition des groupes d'hôtes
   children:
     # Définit un groupe d'hôtes nommé "prod"

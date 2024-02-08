@@ -1,34 +1,34 @@
 - name: Install device-mapper-persistent-data
   yum:
-    name: device-mapper-persistent-data
-    state: latest
+    name: device-mapper-persistent-data   # Installe le package "device-mapper-persistent-data" via le gestionnaire de paquets yum
+    state: latest   # Assure que le paquet est mis à jour à sa dernière version disponible
 
 - name: Install lvm2
   yum:
-    name: lvm2
-    state: latest
+    name: lvm2   # Installe le package "lvm2" via yum
+    state: latest   # Assure que le paquet est mis à jour à sa dernière version disponible
 
 - name: add repo docker
   command:
-    cmd: sudo yum-config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
+    cmd: sudo yum-config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo   # Ajoute le référentiel Docker à yum pour pouvoir installer Docker depuis ce référentiel
 
 - name: Install Docker
   yum:
-    name: docker-ce
-    state: present
+    name: docker-ce   # Installe le package Docker Community Edition (Docker CE) via yum
+    state: present   # Assure que le paquet est présent sur le système
 
 - name: Install python3
   yum:
-    name: python3
-    state: present
+    name: python3   # Installe le package Python 3 via yum
+    state: present   # Assure que le paquet est présent sur le système
 
 - name: Install docker with Python 3
   pip:
-    name: docker
-    executable: pip3
+    name: docker   # Installe le package Python "docker" via pip (gestionnaire de paquets Python)
+    executable: pip3   # Utilise pip3 (version Python 3 de pip) pour l'installation
   vars:
-    ansible_python_interpreter: /usr/bin/python3
+    ansible_python_interpreter: /usr/bin/python3   # Spécifie l'interpréteur Python à utiliser pour Ansible, ici Python 3
 
 - name: Make sure Docker is running
-  service: name=docker state=started
-  tags: docker
+  service: name=docker state=started   # Assure que le service Docker est démarré et fonctionnel
+  tags: docker   # Tags pour identifier ce groupe de tâches comme étant liées à Docker (utile lors de l'exécution sélective des tâches)

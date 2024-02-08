@@ -1,7 +1,8 @@
 ---
 # tasks file for roles/network
-- name: Create a network
-  docker_network:
-    name: app_network
-  vars:
-    ansible_python_interpreter: /usr/bin/python3
+- name: Create a network   # Nom de la tâche
+  docker_network:   # Utilise le module docker_network pour gérer les réseaux Docker
+    name: app_network   # Nom du réseau Docker à créer
+
+  vars:   # Définition de variables spécifiques pour cette tâche
+    ansible_python_interpreter: /usr/bin/python3   # Spécifie l'interpréteur Python à utiliser pour Ansible, ici Python 3

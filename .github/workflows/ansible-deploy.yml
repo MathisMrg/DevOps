@@ -1,7 +1,7 @@
 name: Deploy with Ansible
 on:
   workflow_run:
-    workflows: ["build-and-push-docker"]
+    workflows: ["build-and-push-docker"] # on attends que les images soient deployer
     branches: [main]
     types:
       - completed
@@ -16,19 +16,19 @@ jobs:
         uses: actions/checkout@v2.5.0
 
       - name: Setting up SSH key and vault password
-        run: |
+        run: | # permet l'ajout de la cle prive dans le rep courant et se connecte au serveur
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/private_key.pem
           chmod 600 ~/private_key.pem
           mkdir -p ~/.ssh/ && touch ~/.ssh/known_hosts
           ssh-keyscan -t rsa,dsa,ecdsa,ed25519 mathis.malek.takima.cloud >> ~/.ssh/known_hosts
 
       - name: Setting up Vault password
-        run: |
+        run: | # permet de creer un fichier mot de passe utiliser pour dechiffrer le vault
           echo "${{ secrets.VAULT_PASSWORD }}" > ~/vault_pass.pem
           chmod 600 ~/vault_pass.pem
 
       - name: Run Ansible Playbook
-        run: |
+        run: | # install ansible, et lance la commande avec le fichier vault
           sudo apt update
           sudo apt install -y ansible
           cd ./TP3/ansible

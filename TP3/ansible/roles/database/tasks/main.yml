@@ -18,6 +18,7 @@
       POSTGRES_PASSWORD: "{{ POSTGRES_PASSWORD }}"
     # pour les tests on recréer le docker
     recreate: true
+    #volume ou les donnees sont save
     volumes:
       - /data
       #on indique à ansible ou trouver l'interpréteur python

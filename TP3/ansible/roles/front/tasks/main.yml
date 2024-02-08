@@ -1,8 +1,9 @@
-  - name: Run front
-    docker_container:
-      name: front
-      image: mathismrg/front:latest
-      networks:
-        - name: app_network
-    vars:
-      ansible_python_interpreter: /usr/bin/python3
+- name: Run front   # Nom de la tâche
+  docker_container:   # Utilise le module docker_container pour gérer les conteneurs Docker
+    name: front   # Nom du conteneur Docker
+    image: mathismrg/front:latest   # Image Docker à utiliser pour le conteneur, avec la version "latest"
+    networks:   # Configuration du réseau pour le conteneur
+      - name: app_network   # Nom du réseau auquel le conteneur sera connecté
+
+  vars:   # Définition de variables spécifiques pour cette tâche
+    ansible_python_interpreter: /usr/bin/python3   # Spécifie l'interpréteur Python à utiliser pour Ansible, ici Python 3

@@ -1,25 +1,26 @@
-name: test-backend
+name: test-backend  # Nom du workflow
+
 on:
-  #to begin you want to launch this job in main and develop
-  push:
+  push: #to begin you want to launch this job in main and develop
     branches:
       - main
-      - develop
+      - develop # Le workflow est déclenché pour les branches main et develop
 
 jobs:
-  test-backend: 
-    runs-on: ubuntu-22.04
-    steps:
+  test-backend: # Définition du job "test-backend"
+    runs-on: ubuntu-22.04 # Spécification de l'environnement d'exécution
+    steps: # Étapes à exécuter dans le job
      #checkout your github code using actions/checkout@v2.5.0
       - uses: actions/checkout@v2.5.0
 
      #do the same with another action (actions/setup-java@v3) that enable to setup jdk 17
-      - name: Set up JDK 17
-        uses: actions/setup-java@v3
+      - name: Set up JDK 17 # Étape pour configurer JDK 17
+        uses: actions/setup-java@v3 # Utilisation de l'action pour configurer Java
         with:
-          distribution: 'corretto'
-          java-version: '21'
+          distribution: 'corretto' # Distribution Java à utiliser
+          java-version: '21' # Version de Java à installer
 
      #finally build your app with the latest command
-      - name: Build and test with Maven
+      - name: Build and test with Maven # Étape pour construire et tester avec Maven
         run: mvn -B verify sonar:sonar -Dsonar.projectKey=${{secrets.SONAR_PROJECT_KEY}} -Dsonar.organization=${{secrets.SONAR_ORG_KEY}} -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}  --file ./TP1/java/simpleapi/simpleapi/
+        # Commande pour exécuter Maven avec des paramètres spécifiés, notamment les secrets pour SonarCloud

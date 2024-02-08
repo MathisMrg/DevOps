@@ -1,12 +1,14 @@
-  - name: Run backend
-    docker_container:
-      name: tp1-backend
-      image: mathismrg/tp1-backend:latest
-      networks:
-        - name: app_network
-      env:
-        DB_URL: "{{ DB_URL }}"
-        DB_username: "{{ DB_username }}"
-        DB_password: "{{ DB_password }}"
-    vars:
-      ansible_python_interpreter: /usr/bin/python3
+- name: Run backend   # Nom de la tâche
+  docker_container:   # Utilise le module docker_container pour gérer les conteneurs Docker
+    name: tp1-backend   # Nom du conteneur Docker
+    image: mathismrg/tp1-backend:latest   # Image Docker à utiliser pour le conteneur, avec la version "latest"
+    networks:   # Configuration du réseau pour le conteneur
+      - name: app_network   # Nom du réseau auquel le conteneur sera connecté
+
+    env:   # Définition des variables d'environnement pour le conteneur
+      DB_URL: "{{ DB_URL }}"   # Utilisation de la variable DB_URL définie ailleurs dans le script Ansible
+      DB_username: "{{ DB_username }}"   # Utilisation de la variable DB_username définie ailleurs dans le script Ansible
+      DB_password: "{{ DB_password }}"   # Utilisation de la variable DB_password définie ailleurs dans le script Ansible
+
+  vars:   # Définition de variables spécifiques pour cette tâche
+    ansible_python_interpreter: /usr/bin/python3   # Spécifie l'interpréteur Python à utiliser pour Ansible, ici Python 3
