@@ -20,7 +20,8 @@ services:
     container_name: postgresTP1
 
   httpd:
-    image: mathismrg/tp1-httpd:latest
+    build:
+      context: ../httpd
     ports:
       - "80:80"
     networks:
