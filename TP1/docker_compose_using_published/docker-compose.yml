@@ -10,6 +10,15 @@ services:
       - database
     container_name: tp1-backend
 
+  backend2:
+    image: mathismrg/tp1-backend:latest
+    networks:
+      - app-network
+    env_file: .env
+    depends_on:
+      - database
+    container_name: tp1-backend2
+
   database:
     image: mathismrg/tp1-database:latest
     networks:
@@ -20,13 +29,15 @@ services:
     container_name: postgresTP1
 
   httpd:
-    image: mathismrg/tp1-httpd:latest
+    build:
+      context: ../httpd
     ports:
       - "80:80"
     networks:
       - app-network
     depends_on:
       - backend
+      - backend2
     container_name: httpdTP1
   
   front:
