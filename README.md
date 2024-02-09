@@ -1,5 +1,10 @@
 # DEVOPS 4IRC Mathis MALEK REPO
 
+## Ou trouver les readme
+
+Il y a un readme par TP celui -ci permet juste de donner des infos globals
+Les readme se trouvent les dossier TP1, TP2 et TP3
+
 ## Disposition des dossiers
 
 - TP1 : TP et TD sur Docker 
